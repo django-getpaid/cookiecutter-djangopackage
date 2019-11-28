@@ -37,3 +37,12 @@ class PaymentProcessor(BaseProcessor):
         The Payment instance is here: self.payment
         """
         return ""
+
+    def handle_callback(self, request, *args, **kwargs):
+        """
+        One of most popular payment workflows uses a callback endpoint
+        that should accept a POST request, parse it and act accordingly
+        (e.g. mark payment as accepted or failed) and return a response.
+        """
+        return HttpResponse()
+
