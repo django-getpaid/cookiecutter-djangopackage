@@ -1,31 +1,21 @@
-{% if cookiecutter.models != "Comma-separated list of models" -%}
-# -*- coding: utf-8 -*-
-from django.views.generic import (
-    CreateView,
-    DeleteView,
-    DetailView,
-    UpdateView,
-    ListView
-)
+import swapper
+from django.http import HttpResponseRedirect
+from django.shortcuts import get_object_or_404
+from django.views import View
 
-from .models import ({% for model in cookiecutter.models.split(',') %}
-	{{ model.strip() }},{% endfor %}
-)
+Payment = swapper.load_model("getpaid", "Payment")
 
-{% set views = [
-	'CreateView',
-	'DeleteView',
-	'DetailView',
-	'UpdateView',
-	'ListView'
-] -%}
 
-{% for model in cookiecutter.models.split(',') -%}
-{% for view in views %}
-class {{ model.strip() }}{{ view }}({{ view }}):
+class {{ cookiecutter.broker_name|replace('_', ' ')|title()|replace(' ', '') }}ReturnView(View):
+    # Use this only if standard workflow provided by django-getpaid does not cover your use-case
 
-    model = {{ model.strip() }}
-
-{% endfor -%}
-{% endfor -%}
-{% endif -%}
+    def get(self, request, pk, *args, **kwargs):
+        # example flow:
+        payment = get_object_or_404(Payment, pk=pk)
+        status = request.GET.get("status")
+        if status is not None:
+            if status == "OK":
+                payment.change_status("accepted_for_proc")
+            else:
+                payment.change_status("cancelled")
+        return HttpResponseRedirect(payment.order.get_redirect_url())

@@ -48,3 +48,6 @@ docs/_build
 # Cookiecutter
 output/
 dj-package/
+
+# PyCharm
+.idea/

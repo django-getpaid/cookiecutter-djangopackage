@@ -1,6 +1,6 @@
-===========================
-Cookiecutter Django Package
-===========================
+===================================
+Cookiecutter django-getpaid backend
+===================================
 
 .. image:: https://travis-ci.org/pydanny/cookiecutter-djangopackage.svg?branch=master
     :target: https://travis-ci.org/pydanny/cookiecutter-djangopackage
@@ -159,16 +159,3 @@ Add to Django Packages
 
 Once you have a release, and assuming you have an account there,
 just go to https://www.djangopackages.com/packages/add/ and add it there.
-
-Follows Best Practices
-~~~~~~~~~~~~~~~~~~~~~~
-
-.. image:: https://cdn.shopify.com/s/files/1/0304/6901/products/2017-06-29-tsd11-sticker-02_medium.png?v=1523456754
-   :name: Two Scoops Logo
-   :align: center
-   :alt: Two Scoops of Django
-   :target: http://twoscoopspress.org/products/two-scoops-of-django-1-11
-
-This project follows best practices as espoused in `Two Scoops of Django: Best Practices for Django 1.11`_.
-
-.. _`Two Scoops of Django: Best Practices for Django 1.11`: http://twoscoopspress.org/products/two-scoops-of-django-1-11

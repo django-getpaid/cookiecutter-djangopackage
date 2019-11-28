@@ -1,5 +1,11 @@
-Contributors
-=============
+Django-getpaid backend Contributors
+===================================
+
+* Dominik Kozaczko / @dekoza
+
+
+Django-package Contributors
+===========================
 
 Leads
 ------

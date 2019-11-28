@@ -63,7 +63,7 @@ setup(
         '{{ cookiecutter.app_name }}',
     ],
     include_package_data=True,
-    install_requires=[{% if cookiecutter.models != "Comma-separated list of models" %}"django-model-utils>=2.0",{% endif %}],
+    install_requires=["django-getpaid>=2.0"],
 {%- if cookiecutter.open_source_license in license_classifiers %}
     license="{{ cookiecutter.open_source_license }}",
 {%- endif %}
@@ -71,15 +71,13 @@ setup(
     keywords='{{ cookiecutter.repo_name }}',
     classifiers=[
         'Development Status :: 3 - Alpha',{% if '1.11' in cookiecutter.django_versions %}
-        'Framework :: Django :: 1.11',{% endif %}{% if '2.1' in cookiecutter.django_versions %}
-        'Framework :: Django :: 2.1',{% endif %}
-        'Intended Audience :: Developers',
-        'License :: OSI Approved :: BSD License',
+        'Framework :: Django :: 1.11',{% endif %}{% if '2.2' in cookiecutter.django_versions %}
+        'Framework :: Django :: 2.2',{% endif %}
+        'Intended Audience :: Developers',{% if cookiecutter.open_source_license in license_classifiers %}
+        '{{license_classifiers[cookiecutter.open_source_license]}}',{% endif %}
         'Natural Language :: English',
-        'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 2.7',
-        'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8',
     ],
 )

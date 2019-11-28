@@ -59,15 +59,6 @@ def test_readme(cookies):
         assert '(myenv) $ pip install tox' in readme_lines
 
 
-def test_models(cookies):
-    extra_context = {'models': 'ChocolateChip,Zimsterne', 'app_name': 'cookies'}
-    with bake_in_temp_dir(cookies, extra_context=extra_context) as result:
-
-        model_file = result.project.join('cookies', 'models.py')
-        model_txt = model_file.read()
-        assert 'TimeStampedModel' in model_txt
-
-
 
 def test_views_with_models(cookies):
     """
