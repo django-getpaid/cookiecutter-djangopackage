@@ -10,5 +10,6 @@
   "project_short_description": "django-getpaid processor for {{ cookiecutter.broker_name }}",
   "django_versions": "1.11,2.2",
   "version": "0.1.0",
+  "create_example_project": "N",
   "open_source_license": ["MIT", "BSD", "ISCL", "Apache Software License 2.0", "Not open source"]
 }
